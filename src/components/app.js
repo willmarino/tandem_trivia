@@ -12,10 +12,14 @@ const appTheme = createMuiTheme({
       contrastText: '#fff',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+      light: '#62727b',
+      main: '#37474f',
+      dark: '#102027',
+      contrastText: '#ffffff'
+      // light: '#ff7961',
+      // main: '#f44336',
+      // dark: '#ba000d',
+      // contrastText: '#000',
     },
   },
 })
