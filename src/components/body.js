@@ -1,6 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Sidebar from './body_components/sidebar';
-import Question from './body_components/question';
+import QuestionDisplay from './body_components/question_display';
+import quizQuestions from '../quiz_questions';
 
 class Body extends React.Component{
   constructor(props){
@@ -20,13 +22,16 @@ class Body extends React.Component{
   }
 
   render(){
+    const { location } = this.props;
+    const curQuestionIdx = parseInt(location.pathname[location.pathname.length - 1], 10);
+    debugger;
     return(
       <div className='body'>
         <Sidebar questionStatuses={this.state.questionStatuses}/>
-        <Question changeQuestionStatus={this.changeQuestionStatus} />
+        <QuestionDisplay changeQuestionStatus={this.changeQuestionStatus} currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
       </div>
     )
   }
 }
 
-export default Body;
+export default withRouter(Body);

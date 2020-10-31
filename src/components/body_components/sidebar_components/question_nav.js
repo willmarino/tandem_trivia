@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 
 const QuestionNav = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -10,6 +11,13 @@ const QuestionNav = (props) => {
     }
   }))
   const classes = useStyles();
+
+  const navToQuestion = (idx) => {
+    return () => {
+      props.history.push(`/${idx}`);
+    }
+  }
+
   const Buttons = [];
   for(let i = 0; i < 10; i++){
     let variant = 'outlined'
@@ -22,7 +30,7 @@ const QuestionNav = (props) => {
         color = 'red';
     }
     Buttons.push(
-      <Button variant={variant} color={color}>{`Question ${i + 1}`}</Button>
+      <Button variant={variant} color={color} onClick={navToQuestion(i)} key={i}>{`Question ${i + 1}`}</Button>
     )
   }
   return(
@@ -34,4 +42,4 @@ const QuestionNav = (props) => {
   )
 }
 
-export default QuestionNav;
+export default withRouter(QuestionNav);
