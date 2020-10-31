@@ -4,7 +4,7 @@
   align-items: center;
   width: 80%;
   height: 10%;
-  margin: 20px;
+  margin: 20px 20px 60px 20px;
 }
 
 .header{
@@ -19,8 +19,12 @@
   font-weight: 500;
 
   border-radius: 5px;
-  box-shadow: 0 0 8px 2px #808080;
+  box-shadow: 0 0 6px 1px #808080;
 
   background: #1976d2;
   /* background: black; */
+}
+
+.header p{
+  user-select: none;
 }
