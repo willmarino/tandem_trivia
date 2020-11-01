@@ -20,8 +20,17 @@ const QuestionForm = (props) => {
   const classes = useStyles();
   
   const submitAnswer = () => {
+    const { history, location } = props;
     const correctAnswer = currentQuestionInfo['correct'];
     changeQuestionStatus(correctAnswer === currentSelection)
+    const curQuestionIdx = parseInt(location.pathname.split('/')[1], 10);
+    let nextQuestionIdx;
+    if(curQuestionIdx < 10){
+      nextQuestionIdx = curQuestionIdx + 1
+    }else{
+      nextQuestionIdx = 1;
+    }
+    history.push(`/${nextQuestionIdx}`);
   }
 
   const handleChange = (event) => {

@@ -11,3 +11,12 @@
 .question-nav{
   margin-bottom: 20px;
 }
+
+.status-display{
+  margin-bottom: 20px;
+}
+
+.status-display p{
+  font-size: 18px;
+  font-weight: 500;
+}

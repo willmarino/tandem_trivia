@@ -19,14 +19,19 @@ const QuestionNav = (props) => {
       color: 'red',
       '&:hover': {
         borderColor: 'red',
-      }
+      },
+      background: 'white'
     },
     successButton: {
       borderColor: 'green',
       color: 'green',
       '&:hover': {
         borderColor: 'green',
-      }
+      },
+      background: 'white'
+    },
+    defaultButton: {
+      background: 'white'
     }
   }))
   const classes = useStyles();
