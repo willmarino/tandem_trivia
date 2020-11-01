@@ -4,6 +4,7 @@
 @import './styles/body.css';
 @import './styles/body_components/sidebar.css';
 @import './styles/body_components/question_display.css';
+@import './styles/body_components/landing_page.css';
 
 body {
   margin: 0;

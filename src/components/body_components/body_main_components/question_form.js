@@ -25,7 +25,7 @@ const QuestionForm = (props) => {
   })
   const curQuestionNumber = parseInt(props.location.pathname[props.location.pathname.length - 1], 10);
   return(
-    <div className='question-display'>
+    <div className='question-form'>
       <p>Question {curQuestionNumber}</p>
       <p>{currentQuestionInfo['question']}</p>
       <FormControl component='fieldset'>

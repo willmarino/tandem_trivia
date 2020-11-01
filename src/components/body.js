@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Sidebar from './body_components/sidebar';
-import BodyMain from './body_components/body_main';
+import QuestionDisplay from './body_components/body_main_components/question_display';
+import LandingPage from './body_components/body_main_components/landing_page';
 import quizQuestions from '../quiz_questions';
 
 class Body extends React.Component{
@@ -24,15 +25,22 @@ class Body extends React.Component{
   render(){
     const { location } = this.props;
     const curQuestionIdx = parseInt(location.pathname[location.pathname.length - 1], 10);
+    const body = ( curQuestionIdx )
+      ? ([<Sidebar
+            questionStatuses={this.state.questionStatuses}/>, 
+          <QuestionDisplay
+            changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
+            currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
+        ])
+      : (<LandingPage/>)
     debugger;
     return(
       <div className='body'>
-        <Sidebar
-          questionStatuses={this.state.questionStatuses}/>
-        {/* <QuestionDisplay */}
+        {body}
+        {/* <Sidebar questionStatuses={this.state.questionStatuses}/>
         <BodyMain
           changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
-          currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
+          currentQuestionInfo={quizQuestions[curQuestionIdx]}/> */}
       </div>
     )
   }
