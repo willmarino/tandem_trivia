@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Sidebar from './body_components/sidebar';
-import QuestionDisplay from './body_components/question_display';
+import BodyMain from './body_components/body_main';
 import quizQuestions from '../quiz_questions';
 
 class Body extends React.Component{
@@ -29,7 +29,8 @@ class Body extends React.Component{
       <div className='body'>
         <Sidebar
           questionStatuses={this.state.questionStatuses}/>
-        <QuestionDisplay
+        {/* <QuestionDisplay */}
+        <BodyMain
           changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
           currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
       </div>

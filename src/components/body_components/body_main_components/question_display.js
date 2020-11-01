@@ -40,6 +40,7 @@ class QuestionDisplay extends React.Component{
   }
 
   render(){
+    debugger;
     if(!this.state.shuffledChoices){
       return null;
     }

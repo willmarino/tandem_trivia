@@ -6,8 +6,27 @@ import { withRouter } from 'react-router-dom';
 
 const QuestionNav = (props) => {
   const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      }
+    },
     buttonGroup: {
       width: '100%'
+    },
+    errorButton: {
+      borderColor: 'red',
+      color: 'red',
+      '&:hover': {
+        borderColor: 'red',
+      }
+    },
+    successButton: {
+      borderColor: 'green',
+      color: 'green',
+      '&:hover': {
+        borderColor: 'green',
+      }
     }
   }))
   const classes = useStyles();
@@ -22,15 +41,14 @@ const QuestionNav = (props) => {
   for(let i = 0; i < 10; i++){
     let variant = 'outlined'
     let color = 'primary'
-    switch(props.questionStatuses[i]){
-      case 'correct':
-        variant = 'contained';
-      case 'incorrect':
-        variant = 'contained';
-        color = 'red';
+    let className = classes.defaultButton;
+    if(props.questionStatuses[i] === 'correct'){
+      className = classes.successButton;
+    }else if(props.questionStatuses[i] === 'incorrect'){
+      className = classes.errorButton;
     }
     Buttons.push(
-      <Button variant={variant} color={color} onClick={navToQuestion(i)} key={i}>{`Question ${i + 1}`}</Button>
+      <Button variant={variant} color={color} className={className} onClick={navToQuestion(i)} key={i}>{`Question ${i + 1}`}</Button>
     )
   }
   return(

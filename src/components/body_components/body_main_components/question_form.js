@@ -4,26 +4,32 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
 
 const QuestionForm = (props) => {
 
   const { currentQuestionInfo, changeQuestionStatus, shuffledChoices } = props;
-  const [ currentSelection, changeSelection ] = React.useState();
+  const [ currentSelection, changeSelection ] = React.useState(shuffledChoices[0]);
   
   const submitAnswer = () => {
     const correctAnswer = currentQuestionInfo['correct'];
     changeQuestionStatus(correctAnswer === currentSelection)
   }
 
-  const formControlLabels = shuffledChoices.map((choice) => {
-    return <FormControlLabel value={choice} control={<Radio/>} label={choice}/>
-  })
+  const handleChange = (event) => {
+    changeSelection(event.target.value);
+  }
 
+  const formControlLabels = shuffledChoices.map((choice, i) => {
+    return <FormControlLabel value={choice} control={<Radio/>} label={choice} key={i}/>
+  })
+  const curQuestionNumber = parseInt(props.location.pathname[props.location.pathname.length - 1], 10);
   return(
     <div className='question-display'>
+      <p>Question {curQuestionNumber}</p>
       <p>{currentQuestionInfo['question']}</p>
       <FormControl component='fieldset'>
-        <RadioGroup value={currentSelection} onChange={changeSelection}>
+        <RadioGroup value={currentSelection} onChange={handleChange}>
           {formControlLabels}
         </RadioGroup>
       </FormControl>
@@ -32,4 +38,4 @@ const QuestionForm = (props) => {
   )
 }
 
-export default QuestionForm;
+export default withRouter(QuestionForm);
