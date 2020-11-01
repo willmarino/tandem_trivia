@@ -16,7 +16,7 @@ class Body extends React.Component{
   changeQuestionStatus(idx){
     return (answerStatus) => {
       let questionStatuses = this.state.questionStatuses;
-      questionStatuses[idx] = answerStatus;
+      questionStatuses[idx] = (answerStatus) ? 'correct' : 'incorrect';
       this.setState({ questionStatuses });
     }
   }
@@ -27,8 +27,11 @@ class Body extends React.Component{
     debugger;
     return(
       <div className='body'>
-        <Sidebar questionStatuses={this.state.questionStatuses}/>
-        <QuestionDisplay changeQuestionStatus={this.changeQuestionStatus} currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
+        <Sidebar
+          questionStatuses={this.state.questionStatuses}/>
+        <QuestionDisplay
+          changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
+          currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
       </div>
     )
   }

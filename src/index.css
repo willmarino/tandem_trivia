@@ -3,6 +3,7 @@
 @import './styles/header.css';
 @import './styles/body.css';
 @import './styles/body_components/sidebar.css';
+@import './styles/body_components/question_display.css';
 
 body {
   margin: 0;
