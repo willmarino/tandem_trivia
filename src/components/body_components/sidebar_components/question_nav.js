@@ -48,7 +48,7 @@ const QuestionNav = (props) => {
       className = classes.errorButton;
     }
     Buttons.push(
-      <Button variant={variant} color={color} className={className} onClick={navToQuestion(i)} key={i}>{`Question ${i + 1}`}</Button>
+      <Button variant={variant} color={color} className={className} onClick={navToQuestion(i + 1)} key={i}>{`Question ${i + 1}`}</Button>
     )
   }
   return(

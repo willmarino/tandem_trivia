@@ -5,5 +5,25 @@
   justify-content: flex-start;
   align-items: center;
   padding-bottom: 15%;
+  padding-right: 13%;
   box-sizing: border-box;
+}
+
+.question-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-form #qf-header{
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.question-form #qf-question{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
 }

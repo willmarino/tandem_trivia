@@ -24,23 +24,21 @@ class Body extends React.Component{
 
   render(){
     const { location } = this.props;
-    const curQuestionIdx = parseInt(location.pathname[location.pathname.length - 1], 10);
+    const curQuestionIdx = parseInt(location.pathname.split('/')[1], 10);
     const body = ( curQuestionIdx )
-      ? ([<Sidebar
-            questionStatuses={this.state.questionStatuses}/>, 
+      ? ([
+          <Sidebar
+            questionStatuses={this.state.questionStatuses} key={0}/>, 
           <QuestionDisplay
-            changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
-            currentQuestionInfo={quizQuestions[curQuestionIdx]}/>
+            changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx - 1)}
+            currentQuestionInfo={quizQuestions[curQuestionIdx - 1]}
+            key={1}/>
         ])
       : (<LandingPage/>)
     debugger;
     return(
       <div className='body'>
         {body}
-        {/* <Sidebar questionStatuses={this.state.questionStatuses}/>
-        <BodyMain
-          changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx)}
-          currentQuestionInfo={quizQuestions[curQuestionIdx]}/> */}
       </div>
     )
   }
