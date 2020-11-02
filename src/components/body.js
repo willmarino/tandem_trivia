@@ -43,10 +43,12 @@ class Body extends React.Component{
     }else{
       body = [
         <Sidebar
-          questionStatuses={questionStatuses} key={0}/>, 
+          questionStatuses={questionStatuses}
+          key={0}/>, 
         <QuestionDisplay
           changeQuestionStatus={this.changeQuestionStatus(curQuestionIdx - 1)}
           currentQuestionInfo={quizQuestions[curQuestionIdx - 1]}
+          questionStatus={questionStatuses[curQuestionIdx - 1]}
           key={1}/>
       ]
     }

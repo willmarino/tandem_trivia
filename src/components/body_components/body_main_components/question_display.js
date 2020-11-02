@@ -46,6 +46,7 @@ class QuestionDisplay extends React.Component{
     return(
       <div className='question-display'>
         <QuestionForm
+          questionStatus={this.props.questionStatus}
           currentQuestionInfo={this.props.currentQuestionInfo}
           shuffledChoices={this.state.shuffledChoices}
           changeQuestionStatus={this.props.changeQuestionStatus}/>

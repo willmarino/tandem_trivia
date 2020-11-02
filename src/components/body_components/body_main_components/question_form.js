@@ -47,7 +47,14 @@ const QuestionForm = (props) => {
   const formControlLabels = shuffledChoices.map((choice, i) => {
     return <FormControlLabel value={choice} control={<Radio/>} label={choice} key={i}/>
   })
+
   const curQuestionNumber = parseInt(props.location.pathname.split('/')[1], 10);
+
+  let submitButton = <Button variant='contained' color='secondary' className={classes.button} onClick={submitAnswer}>Submit</Button>
+  if(props.questionStatus !== 'unanswered'){
+    submitButton = <Button variant='contained' color='secondary' className={classes.button} onClick={submitAnswer} disabled>Submit</Button>
+  }
+
   return(
     <div className='question-form'>
       <p id='qf-header'>Question {curQuestionNumber}</p>
@@ -57,7 +64,7 @@ const QuestionForm = (props) => {
           {formControlLabels}
         </RadioGroup>
       </FormControl>
-      <Button variant='contained' color='secondary' className={classes.button} onClick={submitAnswer}>Submit</Button>
+      {submitButton}
       <p id='error-message'>{error}</p>
     </div>
   )
