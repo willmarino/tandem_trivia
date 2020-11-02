@@ -17,7 +17,7 @@ const Header = () => {
   return(
     <div className='header-container'>
       <div className='header'>
-        <p>Tandem-Trivia</p>
+        <p>WJM-Trivia</p>
         <Fab color='primary' className={classes.fab} onClick={ handleClick }>Code</Fab>
       </div>
     </div>
