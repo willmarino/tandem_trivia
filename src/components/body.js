@@ -21,6 +21,12 @@ class Body extends React.Component{
     if(prevprops.location.pathname === '/' && this.props.location.pathname !== '/'){
       this.shouldTransition = true;
     }
+    debugger;
+    if(prevprops.location.pathname === '/completion' && this.props.location.pathname !== '/completion'){
+      debugger;
+      // this.forceUpdate();
+      this.setState({ questionStatuses: new Array(10).fill('unanswered') })
+    }
   }
   
   changeQuestionStatus(idx){
