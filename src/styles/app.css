@@ -8,6 +8,7 @@
 }
 
 .app p{
-  font-family: 'Roboto'
+  font-family: 'Roboto';
+  user-select: none;
 }
 

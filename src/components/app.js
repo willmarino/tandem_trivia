@@ -21,7 +21,6 @@ const appTheme = createMuiTheme({
     }
   },
 })
-
 const App = (props) => {
   const shouldTransition = (props.location.pathname === '/');
   return(

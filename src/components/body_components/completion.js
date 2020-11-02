@@ -22,7 +22,7 @@ class Completion extends React.Component{
       <div className='completion'>
         <img src={`${process.env.PUBLIC_URL}/thumbs_up.png`}></img>
         <p>Congratulations on completing the quiz!</p>
-        <p>Your score was {correctCount} out of {totalCount}</p>
+        <p id='completion-last-message'>Your score was {correctCount} out of {totalCount}</p>
         <Button color='primary' variant='contained' onClick={this.handleClick}>Try Again</Button>
       </div>
     )
