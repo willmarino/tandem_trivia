@@ -1,4 +1,5 @@
 
+![alt text](./public/product_shot.png "Title")
 
 [Startup Instructions](#startup-instructions)
 <br>
