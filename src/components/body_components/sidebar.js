@@ -7,7 +7,7 @@ const Sidebar = (props) => (
   <div className='sidebar'>
     <StatusDisplay questionStatuses={props.questionStatuses}/>
     <QuestionNav questionStatuses={props.questionStatuses}/>
-    <GameSubmitButton/>
+    <GameSubmitButton questionStatuses={props.questionStatuses}/>
   </div>
 )
 

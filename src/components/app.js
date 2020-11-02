@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './header';
 import Body from './body';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { CSSTransition } from 'react-transition-group';
+import { withRouter } from 'react-router-dom';
 
 const appTheme = createMuiTheme({
   palette: {
@@ -20,13 +22,18 @@ const appTheme = createMuiTheme({
   },
 })
 
-const App = () => (
+const App = (props) => {
+  const shouldTransition = (props.location.pathname === '/');
+  return(
   <ThemeProvider theme={appTheme}>
-    <div className='app'>
-      <Header/>
-      <Body/>
-    </div>
+    <CSSTransition in={shouldTransition} timeout={2000} classNames='fade' appear={true}>
+      <div className='app'>
+        <Header/>
+        <Body/>
+      </div>
+    </CSSTransition>
   </ThemeProvider>
-)
+  )
+}
 
-export default App;
+export default withRouter(App);

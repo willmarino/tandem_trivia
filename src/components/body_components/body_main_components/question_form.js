@@ -10,7 +10,8 @@ import { withRouter } from 'react-router-dom';
 const QuestionForm = (props) => {
 
   const { currentQuestionInfo, changeQuestionStatus, shuffledChoices } = props;
-  const [ currentSelection, changeSelection ] = React.useState(shuffledChoices[0]);
+  const [ currentSelection, changeSelection ] = React.useState('theyhaventpickedanything');
+  const [ error, changeError ] = React.useState();
 
   const useStyles = makeStyles((theme) => ({
     button: {
@@ -21,16 +22,22 @@ const QuestionForm = (props) => {
   
   const submitAnswer = () => {
     const { history, location } = props;
-    const correctAnswer = currentQuestionInfo['correct'];
-    changeQuestionStatus(correctAnswer === currentSelection)
-    const curQuestionIdx = parseInt(location.pathname.split('/')[1], 10);
-    let nextQuestionIdx;
-    if(curQuestionIdx < 10){
-      nextQuestionIdx = curQuestionIdx + 1
+    if(currentSelection !== 'theyhaventpickedanything'){
+      changeError(null);
+      const correctAnswer = currentQuestionInfo['correct'];
+      changeQuestionStatus(correctAnswer === currentSelection)
+      const curQuestionIdx = parseInt(location.pathname.split('/')[1], 10);
+      let nextQuestionIdx;
+      if(curQuestionIdx < 10){
+        nextQuestionIdx = curQuestionIdx + 1
+      }else{
+        nextQuestionIdx = 1;
+      }
+      changeSelection('theyhaventpickedanything')
+      history.push(`/${nextQuestionIdx}`);
     }else{
-      nextQuestionIdx = 1;
+      changeError('You must pick an answer');
     }
-    history.push(`/${nextQuestionIdx}`);
   }
 
   const handleChange = (event) => {
@@ -51,6 +58,7 @@ const QuestionForm = (props) => {
         </RadioGroup>
       </FormControl>
       <Button variant='contained' color='secondary' className={classes.button} onClick={submitAnswer}>Submit</Button>
+      <p id='error-message'>{error}</p>
     </div>
   )
 }

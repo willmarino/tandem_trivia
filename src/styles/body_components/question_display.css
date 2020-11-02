@@ -6,11 +6,12 @@
   justify-content: flex-start;
   align-items: center;
 
-  margin: 0 0 15% 5%;
+  margin: 0 0 14% 5%;
   padding: 5% 0 0 0;
   box-sizing: border-box;
 
-  border: 1px solid black;
+  box-shadow: 0 0 6px 1px 	#D3D3D3;
+  border: 1px solid #808080;
   border-radius: 3px;
 
   background: white;
