@@ -1,4 +1,21 @@
-# Getting Started with Create React App
+
+
+[Startup Instructions](#startup-instructions)
+<br>
+[Description](#description)
+<br>
+[Default generated create-react-app readme](#getting-started-with-create-react-app)
+
+## Startup Instructions
+
+To run this project, first ensure that you have Node installed, and are using a version greater than 10.2. I use 12.18.3. Clone the repository down to your local device, cd into the new directory, and run yarn install. Once you have downloaded all the necessary packages, you can run yarn start, and view the project in a browser at http://localhost:3000/. Enjoy!
+
+## Description
+
+This application is a basic trivia game with a landing page, main page, and completion page. A user first navigates to the main game page and is greeted by two main components. The first is a sidebar, which is used mostly to navigate between questions. The second is the question display area, which contains the current question, the choices, which are randomly shuffled to avoid cheating, and a submit button which can be used to actually submit a choice for a question. Users cannot answer questions more than once. After all questions have been completed, users can submit their quiz and they will be show a completion screen. From there, they are able to start the quiz again if they wish to do so.
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
